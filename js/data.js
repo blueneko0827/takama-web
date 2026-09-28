@@ -82,9 +82,9 @@ export const WORKS = [
     ],
     tags: ['WordPress', 'Elementor', 'HTML/CSS', 'UI設計'],
     images: [
-      { file: '01.jpg', caption: 'トップページ（PC）' },
-      { file: '02.jpg', caption: 'トップページ（スマートフォン）' },
-      { file: '03.jpg', caption: '下層ページ' },
+      { file: '01.png', caption: 'トップページ（PC）' },
+      { file: '02.png', caption: 'トップページ（スマートフォン）' },
+      { file: '03.png', caption: '下層ページ' },
     ],
   },
   {
@@ -102,10 +102,10 @@ export const WORKS = [
     ],
     tags: ['HubSpot', 'CMS', 'CRM連携'],
     images: [
-      { file: '01.jpg', caption: 'トップページ（PC）' },
-      { file: '02.jpg', caption: 'サービス紹介ページ' },
-      { file: '03.jpg', caption: 'お問い合わせフォーム' },
-      { file: '04.jpg', caption: 'スマートフォン表示' },
+      { file: '01.png', caption: 'トップページ（PC）' },
+      { file: '02.png', caption: 'サービス紹介ページ' },
+      { file: '03.png', caption: 'お問い合わせフォーム' },
+      { file: '04.png', caption: 'スマートフォン表示' },
     ],
   },
   {
@@ -123,10 +123,10 @@ export const WORKS = [
     ],
     tags: ['makeshop', 'HTML/CSS', 'JavaScript', 'Figma'],
     images: [
-      { file: '01.jpg', caption: 'トップページ（PC）' },
-      { file: '02.jpg', caption: '商品一覧ページ' },
-      { file: '03.jpg', caption: '商品詳細ページ' },
-      { file: '04.jpg', caption: 'スマートフォン表示' },
+      { file: '01.png', caption: 'トップページ（PC）' },
+      { file: '02.png', caption: '商品一覧ページ' },
+      { file: '03.png', caption: '商品詳細ページ' },
+      { file: '04.png', caption: 'スマートフォン表示' },
     ],
   },
   {
@@ -232,10 +232,10 @@ export const WORKS = [
     ],
     tags: ['Make.com', 'OpenAI API', 'HeyGen API', 'Creatomate'],
     images: [
-      { file: '01.jpg', caption: 'Make.com シナリオ全体図' },
-      { file: '02.jpg', caption: '生成された動画（日本語）' },
-      { file: '03.jpg', caption: '多言語版の比較' },
-      { file: '04.jpg', caption: 'APIコスト試算表' },
+      { file: '01.png', caption: 'Make.com シナリオ全体図' },
+      { file: '02.png', caption: '生成された動画（日本語）' },
+      { file: '03.png', caption: '多言語版の比較' },
+      { file: '04.png', caption: 'APIコスト試算表' },
     ],
   },
 ];
