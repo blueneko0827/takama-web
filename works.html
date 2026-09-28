@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>制作実績 | TAKAMA WEB制作</title>
+<meta name="description" content="叶内健大がゼロから開発した、LP・ECサイト・業務システム・3Dアプリ・AI自動化の制作実績です。">
+<meta name="description" content="LP・Webサイト制作から、Salesforce・kintoneなどの業務システム、Unityの3D空間、AI自動化まで。要件整理から公開後の運用まで一貫して対応するWeb・システム開発者のポートフォリオです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="css/style.css?v=42">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body class="page-sub page-works">
+<a class="skip" href="#main">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="./" aria-label="TAKAMA WEB制作 トップへ">
+      <span class="logo-text"><b>TAKAMA</b><span>WEB制作</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">メニュー</button>
+    <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+      <a href="works.html" aria-current="page">実績</a>
+      <a href="services.html">サービス</a>
+      <a href="./#about">自己紹介</a>
+      <a href="./#stack">対応技術</a>
+      <a href="./#flow">ご依頼の流れ</a>
+      <a class="nav-cta" href="contact.html">相談する</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <canvas class="hero-net" id="hero-net" aria-hidden="true"></canvas>
+    <div class="wrap page-head-inner">
+      <nav class="crumbs" aria-label="現在地"><a href="./">ホーム</a><span aria-hidden="true">/</span><span aria-current="page">制作実績</span></nav>
+      <p class="eyebrow">Works</p>
+      <h1>制作実績</h1>
+      <p class="page-lead">掲載している実績は、すべて企画・設計からゼロで開発したものです。カードを開くと、画面キャプチャと担当範囲をご覧いただけます。</p>
+    </div>
+  </section>
+
+  <section class="section works" id="works" aria-labelledby="works-title">
+    <div class="wrap">
+      <h2 class="visually-hidden" id="works-title">実績一覧</h2>
+      <div class="filters" role="group" aria-label="カテゴリで絞り込み" id="filters"></div>
+      <div class="works-grid" id="works-grid"></div>
+      <p class="works-more">ほかにも多数の案件に携わっています。非公開の実績は、ご相談時に内容に近いものをご紹介します。</p>
+    </div>
+  </section>
+
+  <section class="section cta-band" aria-labelledby="cta-title">
+    <div class="wrap cta-inner">
+      <div class="cta-copy">
+        <h2 id="cta-title">似たものをつくりたい方へ</h2>
+        <p>実績に近い内容でも、まったく新しいものでも。まずはお気軽にご相談ください。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-onblue" href="services.html">サービス・料金を見る</a>
+        <a class="btn btn-ghost" href="contact.html">無料で相談する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="to-top" id="to-top" href="#main" aria-label="ページの先頭へ戻る"></a>
+
+<dialog class="work-dialog" id="work-dialog" aria-labelledby="wd-title">
+  <div class="wd-inner">
+    <button class="wd-close" type="button" id="wd-close" aria-label="閉じる">×</button>
+    <div class="wd-gallery">
+      <div class="wd-stage" id="wd-stage"></div>
+      <div class="wd-controls">
+        <button type="button" class="wd-nav" id="wd-prev" aria-label="前の画像">←</button>
+        <span class="wd-count mono" id="wd-count">1 / 4</span>
+        <button type="button" class="wd-nav" id="wd-next" aria-label="次の画像">→</button>
+      </div>
+      <div class="wd-thumbs" id="wd-thumbs"></div>
+    </div>
+    <div class="wd-body" id="wd-body"></div>
+  </div>
+</dialog>
+
+<script type="module" src="js/main.js?v=37"></script>
+</body>
+</html>

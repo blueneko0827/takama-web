@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>叶内健大 | ポートフォリオ</title>
+<title>TAKAMA WEB制作 | 叶内健大 ポートフォリオ</title>
+<meta name="description" content="LP・Webサイト制作から、Salesforce・kintoneなどの業務システム、Unityの3D空間、AI自動化まで。要件整理から公開後の運用まで一貫して対応するWeb・システム開発者のポートフォリオです。">
 <meta name="description" content="LP・Webサイト制作から、Salesforce・kintoneなどの業務システム、Unityの3D空間、AI自動化まで。要件整理から公開後の運用まで一貫して対応するWeb・システム開発者のポートフォリオです。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
-<link rel="stylesheet" href="css/style.css?v=40">
+<link rel="stylesheet" href="css/style.css?v=42">
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
@@ -16,7 +17,8 @@
 } }
 </script>
 </head>
-<body>
+<body class="page-home">
+<script>/* ローディング画面は最初の1回だけ表示 */ try { if (sessionStorage.getItem('loaderSeen')) document.documentElement.classList.add('no-loader', 'is-revealed'); } catch (e) {}</script>
 <div class="loader" id="loader" role="status" aria-label="読み込み中">
   <div class="loader-stage" aria-hidden="true">
     <div class="loader-ring">
@@ -34,26 +36,26 @@
   </div>
   <p class="loader-copy">理想を、一緒にカタチにしませんか。</p>
 </div>
-<a class="skip" href="#works">本文へ移動</a>
+<a class="skip" href="#main">本文へ移動</a>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="logo" href="#top" aria-label="TAKAMA WEB制作 トップへ">
+    <a class="logo" href="./" aria-label="TAKAMA WEB制作 トップへ">
       <span class="logo-text"><b>TAKAMA</b><span>WEB制作</span></span>
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">メニュー</button>
     <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
-      <a href="#works">実績</a>
-      <a href="#services">サービス</a>
-      <a href="#about">自己紹介</a>
-      <a href="#stack">対応技術</a>
-      <a href="#flow">ご依頼の流れ</a>
-      <a class="nav-cta" href="#contact">相談する</a>
+      <a href="works.html">実績</a>
+      <a href="services.html">サービス</a>
+      <a href="./#about">自己紹介</a>
+      <a href="./#stack">対応技術</a>
+      <a href="./#flow">ご依頼の流れ</a>
+      <a class="nav-cta" href="contact.html">相談する</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
   <section class="hero" id="hero">
     <canvas class="hero-net" id="hero-net" aria-hidden="true"></canvas>
     <div class="hero-stage" id="hero-stage">
@@ -65,37 +67,13 @@
         <h1><span>集客から業務まで、</span><span>動く仕組みを</span><span>つくる。</span></h1>
         <p class="hero-lead">LP・Webサイト制作から、Salesforce・kintoneなどの業務システム、Unityの3D空間、AIによる業務自動化まで。要件の整理から公開後の運用まで、ひとりで一貫して担当します。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#works">実績を見る</a>
-          <a class="btn btn-ghost" href="#contact">無料で相談する</a>
+          <a class="btn btn-primary" href="works.html">実績を見る</a>
+          <a class="btn btn-ghost" href="contact.html">無料で相談する</a>
         </div>
       </div>
     </div>
     <p class="stage-note" aria-hidden="true">Code · Dashboard · Metaverse App</p>
-    <a class="scroll-cue" href="#works" aria-label="実績へスクロール"><span></span></a>
-  </section>
-
-  <section class="section works" id="works" aria-labelledby="works-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Works</p>
-        <h2 id="works-title">制作実績</h2>
-        <p class="section-lead">掲載している実績は、すべて企画・設計からゼロで開発したものです。カードを開くと、画面キャプチャと担当範囲をご覧いただけます。</p>
-      </div>
-      <div class="filters" role="group" aria-label="カテゴリで絞り込み" id="filters"></div>
-      <div class="works-grid" id="works-grid"></div>
-      <p class="works-more">ほかにも多数の案件に携わっています。非公開の実績は、ご相談時に内容に近いものをご紹介します。</p>
-    </div>
-  </section>
-
-  <section class="section services" id="services" aria-labelledby="services-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Services</p>
-        <h2 id="services-title">サービス・料金</h2>
-        <p class="section-lead">料金は目安の最低価格（税込）です。内容をお聞きしたうえで、正式にお見積りします。</p>
-      </div>
-      <div class="service-groups" id="service-groups"></div>
-    </div>
+    <a class="scroll-cue" href="#about" aria-label="自己紹介へスクロール"><span></span></a>
   </section>
 
   <section class="section about" id="about" aria-labelledby="about-title">
@@ -117,18 +95,49 @@
         <p>ご要望どおりのシステムを完成させるだけでなく、実際に使う方が迷わず操作でき、将来の改修や機能追加にも対応しやすく、運用の負担が大きくならない仕組みづくりを大切にしています。</p>
         <p>「作りたいものはあるけれど、まだうまく言葉にできない」という段階でも大丈夫です。お困りごとや実現したいことをお聞かせいただければ、実現可能性を確認したうえで、必要な機能・進め方・技術構成を分かりやすくご提案します。末永く信頼してお任せいただける開発パートナーを目指しています。</p>
         <p class="about-sign"><span data-profile="name">叶内健大</span></p>
+        <div class="about-actions">
+          <a class="btn btn-onblue" href="works.html">制作実績を見る</a>
+          <a class="btn btn-onblue" href="services.html">サービス・料金を見る</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section stack" id="stack" aria-labelledby="stack-title">
-    <div class="wrap stack-grid">
+  <section class="section why" id="why" aria-labelledby="why-title">
+    <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Stack</p>
-        <h2 id="stack-title">対応技術</h2>
-        <p class="section-lead">ノーコードの既存サービスから、コードを書く開発まで。ご予算と運用体制に合う方法を選びます。</p>
+        <p class="eyebrow">Why Choose Us</p>
+        <h2 id="why-title">選ばれる理由</h2>
+        <p class="section-lead">つくって終わりではなく、使われ続ける仕組みを。依頼しやすさと、公開後の安心を大切にしています。</p>
       </div>
-      <div class="stack-list" id="stack-list"></div>
+      <ol class="why-list">
+        <li class="why-item"><span class="why-no">01</span><h3>企画から運用まで、ひとりで一貫対応</h3><p>窓口がひとつなので、伝言ゲームがありません。要件整理・設計・開発・公開後の保守まで、同じ担当者が責任を持って進めます。</p></li>
+        <li class="why-item"><span class="why-no">02</span><h3>Webも業務システムも3Dも</h3><p>LP・ホームページから、Salesforce・kintone、Unityの3D空間、AI自動化まで。課題に合わせて最適な方法を選べます。</p></li>
+        <li class="why-item"><span class="why-no">03</span><h3>使う人の目線で設計</h3><p>実際に操作する方が迷わないこと、将来の改修がしやすいこと、運用の負担が増えないことを大切に設計します。</p></li>
+        <li class="why-item"><span class="why-no">04</span><h3>わかりやすい説明とこまめな連絡</h3><p>専門用語をできるだけ使わずにご説明し、進捗は段階ごとに共有します。まだ言葉にできていないご要望からでも大丈夫です。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section stack" id="stack" aria-labelledby="stack-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Technologies</p>
+        <h2 id="stack-title">対応技術</h2>
+        <p class="section-lead">画面づくりからサーバー、業務システム、3D、AIまで。フルスタックエンジニアとして、ご予算と運用体制に合う技術を選びます。</p>
+      </div>
+      <div class="stack-groups" id="stack-list"></div>
+    </div>
+  </section>
+
+  <section class="section voice" id="voice" aria-labelledby="voice-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Voice</p>
+        <h2 id="voice-title">お客様の声</h2>
+        <p class="voice-note" id="voice-note" hidden>※ 掲載準備中のため、現在はサンプルの文章を表示しています。</p>
+      </div>
+      <div class="voice-list" id="voice-list"></div>
     </div>
   </section>
 
@@ -139,58 +148,57 @@
         <h2 id="flow-title">ご依頼の流れ</h2>
       </div>
       <ol class="flow-list">
-        <li><span class="flow-no">01</span><h3>ご相談・ヒアリング</h3><p>ざっくりとしたご要望からで大丈夫です。目的と現状をお聞きします。</p></li>
-        <li><span class="flow-no">02</span><h3>ご提案・お見積り</h3><p>構成案・スケジュール・お見積りをまとめてご提示します。</p></li>
-        <li><span class="flow-no">03</span><h3>設計・デザイン</h3><p>画面や仕組みの設計を共有し、方向性を確認してから進めます。</p></li>
-        <li><span class="flow-no">04</span><h3>開発・テスト</h3><p>PC・スマートフォン・実機で動作を確認しながら仕上げます。</p></li>
-        <li><span class="flow-no">05</span><h3>納品・運用サポート</h3><p>公開作業と、更新方法のご説明まで対応します。</p></li>
+        <li><img class="flow-icon" src="images/icons/flow-01.png" alt="ヒアリングを表す吹き出しのアイコン" width="88" height="88" loading="lazy"><span class="flow-no">STEP 01</span><h3>ご相談・ヒアリング</h3><p>ざっくりとしたご要望からで大丈夫です。目的と現状をお聞きします。</p></li>
+        <li><img class="flow-icon" src="images/icons/flow-02.png" alt="見積書のアイコン" width="88" height="88" loading="lazy"><span class="flow-no">STEP 02</span><h3>ご提案・お見積り</h3><p>構成案・スケジュール・お見積りをまとめてご提示します。</p></li>
+        <li><img class="flow-icon" src="images/icons/flow-03.png" alt="画面設計とペンのアイコン" width="88" height="88" loading="lazy"><span class="flow-no">STEP 03</span><h3>設計・デザイン</h3><p>画面や仕組みの設計を共有し、方向性を確認してから進めます。</p></li>
+        <li><img class="flow-icon" src="images/icons/flow-04.png" alt="コードと完了チェックのアイコン" width="88" height="88" loading="lazy"><span class="flow-no">STEP 04</span><h3>開発・テスト</h3><p>PC・スマートフォン・実機で動作を確認しながら仕上げます。</p></li>
+        <li><img class="flow-icon" src="images/icons/flow-05.png" alt="公開を表すロケットのアイコン" width="88" height="88" loading="lazy"><span class="flow-no">STEP 05</span><h3>納品・運用サポート</h3><p>公開作業と、更新方法のご説明まで対応します。</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="section contact" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact-grid">
+  <section class="section explore" aria-labelledby="explore-title">
+    <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Contact</p>
-        <h2 id="contact-title">ご相談・お見積り</h2>
-        <p class="section-lead">仕様が決まっていなくても大丈夫です。やりたいことを一言いただければ、進め方からご提案します。</p>
-        <p class="contact-mail">メール：<span class="mono" data-profile="email">nagatoyukiza1234@gmail.com</span> <button class="copy" type="button" id="copy-mail">コピー</button></p>
-        <p class="contact-profile" id="contact-profile" hidden></p>
+        <p class="eyebrow">Next</p>
+        <h2 id="explore-title">実績とサービスを見る</h2>
       </div>
-      <form class="contact-form" id="contact-form" novalidate>
-        <input type="hidden" name="_subject" value="【ポートフォリオ】ご相談・お見積り">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="field"><label for="f-name">お名前・会社名</label><input id="f-name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="f-email">メールアドレス</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="f-service">ご相談内容</label><select id="f-service" name="service"></select></div>
-        <div class="field"><label for="f-message">詳細（目的・時期・ご予算など）</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
-        <button class="btn btn-primary" type="submit">送信する</button>
-        <p class="form-status" id="form-status" role="status"></p>
-      </form>
+      <div class="explore-grid">
+        <a class="explore-card" href="works.html">
+          <span class="explore-media"><img src="images/works/gym-lp/01.jpg" alt="" loading="lazy"></span>
+          <span class="explore-body">
+            <span class="eyebrow">Works</span>
+            <strong>制作実績</strong>
+            <span class="explore-text">LP・EC・業務システム・3D・AI。企画からゼロで開発した実績をご覧いただけます。</span>
+            <span class="btn btn-primary">実績を見る</span>
+          </span>
+        </a>
+        <a class="explore-card" href="services.html">
+          <span class="explore-media"><img src="images/services/homepage.jpg" alt="" loading="lazy"></span>
+          <span class="explore-body">
+            <span class="eyebrow">Services</span>
+            <strong>サービス・料金</strong>
+            <span class="explore-text">14のサービスと料金の目安。対応内容や期間の目安もまとめています。</span>
+            <span class="btn btn-primary">サービスを見る</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="section cta-band" aria-labelledby="cta-title">
+    <div class="wrap cta-inner">
+      <div class="cta-copy">
+        <h2 id="cta-title">まずはお気軽にご相談ください</h2>
+        <p>仕様が決まっていなくても大丈夫です。ご相談・お見積りは無料です。</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-ghost" href="contact.html">今すぐ相談する</a>
+      </div>
     </div>
   </section>
 </main>
 
-<a class="to-top" id="to-top" href="#top" aria-label="ページの先頭へ戻る"></a>
-
-<dialog class="work-dialog" id="work-dialog" aria-labelledby="wd-title">
-  <div class="wd-inner">
-    <button class="wd-close" type="button" id="wd-close" aria-label="閉じる">×</button>
-    <div class="wd-gallery">
-      <div class="wd-stage" id="wd-stage"></div>
-      <div class="wd-controls">
-        <button type="button" class="wd-nav" id="wd-prev" aria-label="前の画像">←</button>
-        <span class="wd-count mono" id="wd-count">1 / 4</span>
-        <button type="button" class="wd-nav" id="wd-next" aria-label="次の画像">→</button>
-      </div>
-      <div class="wd-thumbs" id="wd-thumbs"></div>
-    </div>
-    <div class="wd-body" id="wd-body"></div>
-  </div>
-</dialog>
-
-<script type="module" src="js/main.js?v=34"></script>
+<a class="to-top" id="to-top" href="#main" aria-label="ページの先頭へ戻る"></a>
+<script type="module" src="js/main.js?v=37"></script>
 </body>
 </html>

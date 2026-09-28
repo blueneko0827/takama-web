@@ -105,3 +105,24 @@
 - `images/services/automation.jpg` n8n・Make・Zapier
 
 JPG 以外（PNG など）を使う場合や枚数を増やす場合は、js/data.js（ローディング画面は index.html）のファイル名も合わせて変更してください。
+
+## ご依頼の流れのアイコン（正方形 PNG、例 320×320px、背景透過可）
+
+- `images/icons/flow-01.png` ご相談・ヒアリング
+- `images/icons/flow-02.png` ご提案・お見積り
+- `images/icons/flow-03.png` 設計・デザイン
+- `images/icons/flow-04.png` 開発・テスト
+- `images/icons/flow-05.png` 納品・運用サポート
+
+## 対応技術のロゴ（images/tech/、SVG または同名の PNG に変更可）
+
+公式ロゴは Devicon（MIT）と Simple Icons（CC0）から入れています。
+次の6つは公開のアイコン集にないため、仮の文字入りアイコンです。各サービスの公式サイトのロゴに差し替えてください。
+
+- `images/tech/kintone.svg`
+- `images/tech/swell.svg`
+- `images/tech/makeshop.svg`
+- `images/tech/openai.svg`
+- `images/tech/heygen.svg`
+- `images/tech/creatomate.svg`
+

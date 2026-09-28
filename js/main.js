@@ -1,4 +1,4 @@
-import { PROFILE, CATEGORIES, WORKS, SERVICE_GROUPS, STACK } from './data.js?v=28';
+import { PROFILE, CATEGORIES, WORKS, SERVICE_GROUPS, TESTIMONIALS, STACK } from './data.js?v=31';
 
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -13,10 +13,16 @@ function media(work, img, { eager = false, badge = '' } = {}) {
   </div>`;
 }
 
-/* ローディング画面：表示から約5秒（回転1周ぶん）経ったら幕を開けて消す。表示中はスクロールを止める。
-   html.is-loading の間はヒーローを隠し、開くと同時に html.is-revealed で順番に登場させる */
+const isSub = document.body.classList.contains('page-sub');
+
+/* ローディング画面：トップページの初回表示だけ。約5秒（回転1周ぶん）経ったら幕を開けて消す。
+   表示中はスクロールを止める。html.is-loading の間はヒーローを隠し、開くと html.is-revealed で順番に登場させる。
+   同じタブで2回目以降にトップへ戻ったとき（html.no-loader）は出さない */
 const loader = $('#loader');
-if (loader) {
+if (loader && document.documentElement.classList.contains('no-loader')) {
+  loader.remove();
+} else if (loader) {
+  try { sessionStorage.setItem('loaderSeen', '1'); } catch {}
   const MIN_MS = 5000;
   const root = document.documentElement;
   root.classList.add('is-loading');
@@ -36,23 +42,24 @@ document.querySelectorAll('[data-profile]').forEach((el) => {
 });
 if (PROFILE.profileUrl) {
   const p = $('#contact-profile');
-  p.innerHTML = `<a href="${esc(PROFILE.profileUrl)}" target="_blank" rel="noopener">${esc(PROFILE.profileLabel)}</a>`;
-  p.hidden = false;
+  if (p) p.innerHTML = `<a href="${esc(PROFILE.profileUrl)}" target="_blank" rel="noopener">${esc(PROFILE.profileLabel)}</a>`;
+  if (p) p.hidden = false;
 }
 
 /* Nav */
 const navToggle = $('#nav-toggle');
 const nav = $('#site-nav');
 
-/* メニューバーと「先頭へ戻る」ボタン：読み込み時は隠し、300pxほどスクロールしたら表示 */
+/* メニューバーと「先頭へ戻る」ボタン：トップでは読み込み時に隠し、300pxほどスクロールしたら表示。
+   下層ページではメニューバーを常に表示 */
 const header = $('.site-header');
 const toTop = $('#to-top');
 const SHOW_AT = 300;
 function syncHeader() {
   const show = scrollY > SHOW_AT;
-  header?.classList.toggle('is-shown', show);
+  header?.classList.toggle('is-shown', isSub || show);
   toTop?.classList.toggle('is-shown', show);
-  if (!show && nav.classList.contains('open')) { nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); }
+  if (!show && !isSub && nav.classList.contains('open')) { nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); }
 }
 addEventListener('scroll', syncHeader, { passive: true });
 syncHeader();
@@ -64,7 +71,7 @@ nav.addEventListener('click', (e) => {
   if (e.target.closest('a')) { nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); }
 });
 
-/* Works */
+/* Works（実績ページのみ） */
 const grid = $('#works-grid');
 const filters = $('#filters');
 let activeCat = 'all';
@@ -92,6 +99,7 @@ function renderWorks() {
     </button>`).join('');
 }
 
+if (grid) {
 filters.addEventListener('click', (e) => {
   const b = e.target.closest('.chip');
   if (!b) return;
@@ -166,34 +174,85 @@ stage.addEventListener('pointerup', (e) => {
   startX = null;
   if (Math.abs(dx) > 40) showImage(index + (dx < 0 ? 1 : -1));
 });
+}
 
-/* Services */
+/* Services（サービスページ）：項目をクリックすると詳細がドロップダウンで開く */
 const yen = new Intl.NumberFormat('ja-JP');
-$('#service-groups').innerHTML = SERVICE_GROUPS.map((g) => `
+const priceHtml = (s) => s.price ? `<span class="price">¥${yen.format(s.price)}<small>〜</small></span>` : '<span class="price ask">お見積り</span>';
+const groupsEl = $('#service-groups');
+if (groupsEl) {
+  let n = 0;
+  groupsEl.innerHTML = SERVICE_GROUPS.map((g) => `
   <section class="service-group" aria-labelledby="sg-${g.id}">
     <div class="service-group-head">
       <h3 id="sg-${g.id}"><span class="dot" style="${catVar(g.id === 'web' ? 'web' : g.id === 'ai' ? 'ai' : 'system')}"></span>${esc(g.label)}</h3>
       <p>${esc(g.lead)}</p>
     </div>
     <ul class="service-list">
-      ${g.items.map((s) => `
+      ${g.items.map((s) => { const id = `svc-${++n}`; return `
         <li class="service">
-          <figure class="service-art"><img src="${esc(s.image)}" alt="" loading="lazy"></figure>
-          <div><h4>${esc(s.name)}</h4><p>${esc(s.desc)}</p></div>
-          ${s.price ? `<span class="price">¥${yen.format(s.price)}<small>〜</small></span>` : '<span class="price ask">お見積り</span>'}
-        </li>`).join('')}
+          <button class="service-toggle" type="button" aria-expanded="false" aria-controls="${id}">
+            <figure class="service-art"><img src="${esc(s.image)}" alt="" loading="lazy"></figure>
+            <span class="service-summary"><span class="service-name">${esc(s.name)}</span><span class="service-desc">${esc(s.desc)}</span></span>
+            <span class="service-foot">${priceHtml(s)}<span class="service-more">詳細を見る</span></span>
+          </button>
+          <div class="service-detail" id="${id}" role="region" aria-label="${esc(s.name)}の詳細">
+            <div class="service-detail-inner">
+              <h4>対応内容</h4>
+              <ul>${(s.includes || []).map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+              <dl>
+                ${s.period ? `<div><dt>期間の目安</dt><dd>${esc(s.period)}</dd></div>` : ''}
+                <div><dt>料金の目安</dt><dd>${s.price ? `¥${yen.format(s.price)}〜` : 'お見積り'}</dd></div>
+              </dl>
+              ${s.note ? `<p class="service-note">${esc(s.note)}</p>` : ''}
+              <a class="service-ask" href="contact.html?service=${encodeURIComponent(s.name)}">このサービスについて相談する</a>
+            </div>
+          </div>
+        </li>`; }).join('')}
+    </ul>
+  </section>`).join('');
+  groupsEl.addEventListener('click', (e) => {
+    const t = e.target.closest('.service-toggle');
+    if (!t) return;
+    const open = t.getAttribute('aria-expanded') !== 'true';
+    t.setAttribute('aria-expanded', String(open));
+    t.closest('.service').classList.toggle('is-open', open);
+  });
+}
+
+/* Stack */
+/* 対応技術（トップ）：分野ごとに、ロゴ付きで表示 */
+const stackEl = $('#stack-list');
+if (stackEl) stackEl.innerHTML = STACK.map((g) => `
+  <section class="stack-group" aria-label="${esc(g.label)}">
+    <div class="stack-head"><h3>${esc(g.label)}</h3><p>${esc(g.lead)}</p></div>
+    <ul class="stack-items">${g.items.map((i) => `
+      <li class="stack-item"><img src="images/tech/${esc(i.icon)}.svg" alt="" width="40" height="40" loading="lazy"><span>${esc(i.name)}</span></li>`).join('')}
     </ul>
   </section>`).join('');
 
-/* Stack */
-$('#stack-list').innerHTML = `<dl style="margin:0">${STACK.map((r) => `
-  <div class="stack-row"><dt>${esc(r.label)}</dt><dd>${r.items.map((i) => `<span>${esc(i)}</span>`).join('')}</dd></div>`).join('')}</dl>`;
+/* お客様の声（トップ）。TESTIMONIALS.sample が true の間は「サンプル」の注記を出す */
+const voiceEl = $('#voice-list');
+if (voiceEl) {
+  voiceEl.innerHTML = TESTIMONIALS.items.map((t) => `
+    <figure class="voice-card">
+      <blockquote><p>${esc(t.text)}</p></blockquote>
+      <figcaption><span class="voice-who">${esc(t.who)}</span><span class="voice-work">${esc(t.work)}</span></figcaption>
+    </figure>`).join('');
+  const note = $('#voice-note');
+  if (note) note.hidden = !TESTIMONIALS.sample;
+}
 
-/* Contact */
+/* Contact（お問い合わせページのみ） */
+const form = $('#contact-form');
+if (form) {
 const sel = $('#f-service');
 sel.innerHTML = '<option value="">選択してください</option>' +
   SERVICE_GROUPS.map((g) => `<optgroup label="${esc(g.label)}">${g.items.map((s) => `<option>${esc(s.name)}</option>`).join('')}</optgroup>`).join('') +
   '<option>その他・未定</option>';
+/* サービスページの「相談する」から来たときは、その項目を選んでおく */
+const pre = new URLSearchParams(location.search).get('service');
+if (pre) [...sel.options].forEach((o) => { if (o.value === pre) o.selected = true; });
 
 $('#copy-mail').addEventListener('click', async (e) => {
   const btn = e.currentTarget;
@@ -205,7 +264,6 @@ $('#copy-mail').addEventListener('click', async (e) => {
   setTimeout(() => { btn.textContent = 'コピー'; }, 2000);
 });
 
-const form = $('#contact-form');
 const status = $('#form-status');
 const submitBtn = form.querySelector('[type="submit"]');
 /* 送信できない場合の予備：入力内容を差し込んだメール作成リンク */
@@ -245,30 +303,30 @@ form.addEventListener('submit', async (e) => {
     submitBtn.disabled = false;
   }
 });
+}
 
-renderFilters();
-renderWorks();
+if (grid) { renderFilters(); renderWorks(); }
 
 /* 3D・背景アニメーション（使えない環境ではスキップ） */
-import('./hero3d.js?v=28')
+if ($('#hero-canvas')) import('./hero3d.js?v=28')
   .then((m) => m.initHero($('#hero-canvas'), $('#hero-stage'), $('#hero-copy')))
   .catch(() => $('#hero-stage').classList.add('no-webgl'));
-import('./net-lines.js').then((m) => m.initNetLines($('#hero-net'))).catch(() => {});
-import('./about-light.js').then((m) => m.initAboutLight($('#about-light'))).catch(() => {});
+if ($('#hero-net')) import('./net-lines.js').then((m) => m.initNetLines($('#hero-net'))).catch(() => {});
+if ($('#about-light')) import('./about-light.js').then((m) => m.initAboutLight($('#about-light'))).catch(() => {});
 
 /* 3D：カードがマウスに合わせて傾き、光が反射する */
 const canTilt = matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-const TILT_SEL = '.work-card, .service, .flow-list li';
+const TILT_SEL = '.work-card, .service, .flow-list li, .why-item, .voice-card, .stack-group';
 function markTilt() {
   document.querySelectorAll(TILT_SEL).forEach((el) => {
-    if (!el.dataset.tilt) el.dataset.tilt = '9';
+    if (!el.dataset.tilt) el.dataset.tilt = el.classList.contains('service') || el.classList.contains('stack-group') ? '5' : '9';
     const g = el.classList.contains('work-card') ? el.querySelector('.media') : el;
     g?.classList.add('glare');
   });
 }
 if (canTilt) {
   markTilt();
-  new MutationObserver(markTilt).observe(grid, { childList: true });
+  if (grid) new MutationObserver(markTilt).observe(grid, { childList: true });
   let active = null;
   const reset = (el) => { if (!el) return; el.classList.remove('tilting'); el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); };
   document.addEventListener('pointermove', (e) => {
