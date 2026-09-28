@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>叶内健大 | ポートフォリオ</title>
+<meta name="description" content="LP・Webサイト制作から、Salesforce・kintoneなどの業務システム、Unityの3D空間、AI自動化まで。要件整理から公開後の運用まで一貫して対応するWeb・システム開発者のポートフォリオです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="css/style.css?v=40">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div class="loader" id="loader" role="status" aria-label="読み込み中">
+  <div class="loader-stage" aria-hidden="true">
+    <div class="loader-ring">
+      <figure class="loader-card" style="--i:0"><img src="images/loader/01.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:1"><img src="images/loader/02.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:2"><img src="images/loader/03.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:3"><img src="images/loader/04.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:4"><img src="images/loader/05.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:5"><img src="images/loader/06.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:6"><img src="images/loader/07.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:7"><img src="images/loader/08.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:8"><img src="images/loader/09.jpg" alt=""></figure>
+      <figure class="loader-card" style="--i:9"><img src="images/loader/10.jpg" alt=""></figure>
+    </div>
+  </div>
+  <p class="loader-copy">理想を、一緒にカタチにしませんか。</p>
+</div>
+<a class="skip" href="#works">本文へ移動</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="TAKAMA WEB制作 トップへ">
+      <span class="logo-text"><b>TAKAMA</b><span>WEB制作</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">メニュー</button>
+    <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+      <a href="#works">実績</a>
+      <a href="#services">サービス</a>
+      <a href="#about">自己紹介</a>
+      <a href="#stack">対応技術</a>
+      <a href="#flow">ご依頼の流れ</a>
+      <a class="nav-cta" href="#contact">相談する</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <canvas class="hero-net" id="hero-net" aria-hidden="true"></canvas>
+    <div class="hero-stage" id="hero-stage">
+      <canvas id="hero-canvas" aria-label="ノートPC・タブレット・スマートフォンの3Dモデル。コードエディタ、業務ダッシュボード、メタバースアプリの画面を表示" role="img"></canvas>
+    </div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy" id="hero-copy">
+        <p class="eyebrow">Web · System · 3D · Automation</p>
+        <h1><span>集客から業務まで、</span><span>動く仕組みを</span><span>つくる。</span></h1>
+        <p class="hero-lead">LP・Webサイト制作から、Salesforce・kintoneなどの業務システム、Unityの3D空間、AIによる業務自動化まで。要件の整理から公開後の運用まで、ひとりで一貫して担当します。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#works">実績を見る</a>
+          <a class="btn btn-ghost" href="#contact">無料で相談する</a>
+        </div>
+      </div>
+    </div>
+    <p class="stage-note" aria-hidden="true">Code · Dashboard · Metaverse App</p>
+    <a class="scroll-cue" href="#works" aria-label="実績へスクロール"><span></span></a>
+  </section>
+
+  <section class="section works" id="works" aria-labelledby="works-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Works</p>
+        <h2 id="works-title">制作実績</h2>
+        <p class="section-lead">掲載している実績は、すべて企画・設計からゼロで開発したものです。カードを開くと、画面キャプチャと担当範囲をご覧いただけます。</p>
+      </div>
+      <div class="filters" role="group" aria-label="カテゴリで絞り込み" id="filters"></div>
+      <div class="works-grid" id="works-grid"></div>
+      <p class="works-more">ほかにも多数の案件に携わっています。非公開の実績は、ご相談時に内容に近いものをご紹介します。</p>
+    </div>
+  </section>
+
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2 id="services-title">サービス・料金</h2>
+        <p class="section-lead">料金は目安の最低価格（税込）です。内容をお聞きしたうえで、正式にお見積りします。</p>
+      </div>
+      <div class="service-groups" id="service-groups"></div>
+    </div>
+  </section>
+
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <canvas class="about-light" id="about-light" aria-hidden="true"></canvas>
+    <div class="wrap about-grid">
+      <div class="about-head">
+        <div class="section-head">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">自己紹介・ごあいさつ</h2>
+        </div>
+        <p class="about-lead">はじめまして。<br><span data-profile="name">叶内健大</span>と申します。</p>
+        <blockquote class="about-quote">
+          <p>エンジニアとしての仕事を通じて、個人・企業のお客様の事業成長に貢献し、その先にある社会の発展に寄与していきたいと考えています。</p>
+        </blockquote>
+      </div>
+      <div class="about-body">
+        <p>小さな企業のジュニアフロントエンドエンジニアとしてキャリアをスタートし、現在はフリーランスのフルスタックエンジニアとして活動しています。</p>
+        <p>Web・業務システムの設計・開発を中心に、企画・要件整理から設計、開発、公開後の保守・改善まで一貫して対応しております。WordPress・ShopifyなどのCMSを活用したLP・ホームページ・ECサイトの新規構築やカスタマイズもお任せください。</p>
+        <p>ご要望どおりのシステムを完成させるだけでなく、実際に使う方が迷わず操作でき、将来の改修や機能追加にも対応しやすく、運用の負担が大きくならない仕組みづくりを大切にしています。</p>
+        <p>「作りたいものはあるけれど、まだうまく言葉にできない」という段階でも大丈夫です。お困りごとや実現したいことをお聞かせいただければ、実現可能性を確認したうえで、必要な機能・進め方・技術構成を分かりやすくご提案します。末永く信頼してお任せいただける開発パートナーを目指しています。</p>
+        <p class="about-sign"><span data-profile="name">叶内健大</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack" id="stack" aria-labelledby="stack-title">
+    <div class="wrap stack-grid">
+      <div class="section-head">
+        <p class="eyebrow">Stack</p>
+        <h2 id="stack-title">対応技術</h2>
+        <p class="section-lead">ノーコードの既存サービスから、コードを書く開発まで。ご予算と運用体制に合う方法を選びます。</p>
+      </div>
+      <div class="stack-list" id="stack-list"></div>
+    </div>
+  </section>
+
+  <section class="section flow" id="flow" aria-labelledby="flow-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Flow</p>
+        <h2 id="flow-title">ご依頼の流れ</h2>
+      </div>
+      <ol class="flow-list">
+        <li><span class="flow-no">01</span><h3>ご相談・ヒアリング</h3><p>ざっくりとしたご要望からで大丈夫です。目的と現状をお聞きします。</p></li>
+        <li><span class="flow-no">02</span><h3>ご提案・お見積り</h3><p>構成案・スケジュール・お見積りをまとめてご提示します。</p></li>
+        <li><span class="flow-no">03</span><h3>設計・デザイン</h3><p>画面や仕組みの設計を共有し、方向性を確認してから進めます。</p></li>
+        <li><span class="flow-no">04</span><h3>開発・テスト</h3><p>PC・スマートフォン・実機で動作を確認しながら仕上げます。</p></li>
+        <li><span class="flow-no">05</span><h3>納品・運用サポート</h3><p>公開作業と、更新方法のご説明まで対応します。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">ご相談・お見積り</h2>
+        <p class="section-lead">仕様が決まっていなくても大丈夫です。やりたいことを一言いただければ、進め方からご提案します。</p>
+        <p class="contact-mail">メール：<span class="mono" data-profile="email">nagatoyukiza1234@gmail.com</span> <button class="copy" type="button" id="copy-mail">コピー</button></p>
+        <p class="contact-profile" id="contact-profile" hidden></p>
+      </div>
+      <form class="contact-form" id="contact-form" novalidate>
+        <input type="hidden" name="_subject" value="【ポートフォリオ】ご相談・お見積り">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field"><label for="f-name">お名前・会社名</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">メールアドレス</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-service">ご相談内容</label><select id="f-service" name="service"></select></div>
+        <div class="field"><label for="f-message">詳細（目的・時期・ご予算など）</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
+        <button class="btn btn-primary" type="submit">送信する</button>
+        <p class="form-status" id="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<a class="to-top" id="to-top" href="#top" aria-label="ページの先頭へ戻る"></a>
+
+<dialog class="work-dialog" id="work-dialog" aria-labelledby="wd-title">
+  <div class="wd-inner">
+    <button class="wd-close" type="button" id="wd-close" aria-label="閉じる">×</button>
+    <div class="wd-gallery">
+      <div class="wd-stage" id="wd-stage"></div>
+      <div class="wd-controls">
+        <button type="button" class="wd-nav" id="wd-prev" aria-label="前の画像">←</button>
+        <span class="wd-count mono" id="wd-count">1 / 4</span>
+        <button type="button" class="wd-nav" id="wd-next" aria-label="次の画像">→</button>
+      </div>
+      <div class="wd-thumbs" id="wd-thumbs"></div>
+    </div>
+    <div class="wd-body" id="wd-body"></div>
+  </div>
+</dialog>
+
+<script type="module" src="js/main.js?v=34"></script>
+</body>
+</html>
