@@ -88,6 +88,26 @@ export const WORKS = [
     ],
   },
   {
+    slug: 'wp-elementor',
+    category: 'web',
+    title: 'WordPress（Elementor）での企業サイト構築',
+    client: '企業のコーポレートサイト',
+    summary: 'WordPressとElementorで企業サイトをゼロから構築。統一感のあるデザインルールと、スマートフォンでも見やすく操作しやすいUIを設計しました。',
+    platform: 'WordPress（Elementor）',
+    scope: ['デザイン', '構築', 'テスト'],
+    points: [
+      '配色・余白・見出しのルールを定め、サイト全体に統一感を持たせる設計',
+      'タップ領域や文字サイズを設計段階から最適化し、スマートフォンでの使いやすさを確保',
+      'トップと下層1ページで方向性を確認してから、全ページへ展開',
+    ],
+    tags: ['WordPress', 'Elementor', 'HTML/CSS', 'UI設計'],
+    images: [
+      { file: '01.png', caption: 'トップページ（PC）' },
+      { file: '02.png', caption: 'トップページ（スマートフォン）' },
+      { file: '03.png', caption: '下層ページ' },
+    ],
+  },
+  {
     slug: 'hubspot-corporate',
     category: 'web',
     title: 'HubSpot CMSでのコーポレートサイト構築',
@@ -248,21 +268,31 @@ export const SERVICE_GROUPS = [
     label: 'Web制作',
     lead: '集客と更新のしやすさを両立するサイトづくり。',
     items: [
-      { image: 'images/services/lp.jpg', name: 'LP制作', desc: '構成から実装まで、集客効果の高いランディングページを制作します', price: 100000,
+      {
+        image: 'images/services/lp.jpg', name: 'LP制作', desc: '構成から実装まで、集客効果の高いランディングページを制作します', price: 100000,
         includes: ['ヒアリング・競合調査をもとにした構成案', 'ワイヤーフレーム・デザイン制作', 'PC・スマートフォン対応のコーディング', 'フォーム設置・アクセス解析の導入'],
-        period: '2〜4週間', note: '広告用・商品紹介用など、目的に合わせて構成を設計します。' },
-      { image: 'images/services/homepage.jpg', name: 'ホームページ制作', desc: '集客導線まで設計する、高品質なホームページを制作します', price: 150000,
+        period: '2〜4週間', note: '広告用・商品紹介用など、目的に合わせて構成を設計します。'
+      },
+      {
+        image: 'images/services/homepage.jpg', name: 'ホームページ制作', desc: '集客導線まで設計する、高品質なホームページを制作します', price: 150000,
         includes: ['サイトマップ・導線設計', 'トップ・下層ページのデザイン', 'レスポンシブ対応のコーディング', 'お問い合わせフォーム・基本的なSEO設定'],
-        period: '1〜2か月', note: 'ページ数や機能に応じてお見積りします。' },
-      { image: 'images/services/wordpress.jpg', name: 'WordPress', desc: '自分たちで更新しやすいホームページ・LPを構築します', price: 80000,
+        period: '1〜2か月', note: 'ページ数や機能に応じてお見積りします。'
+      },
+      {
+        image: 'images/services/wordpress.jpg', name: 'WordPress', desc: '自分たちで更新しやすいホームページ・LPを構築します', price: 80000,
         includes: ['テーマ選定またはオリジナルテーマ制作', 'お知らせ・ブログなど更新機能の構築', '更新マニュアルの作成・操作説明', 'セキュリティ・バックアップの初期設定'],
-        period: '3〜6週間', note: '既存サイトのWordPress化・改修もご相談ください。' },
-      { image: 'images/services/shopify.jpg', name: 'Shopify', desc: '売れる導線と安定運用のECサイトを構築します', price: 180000,
+        period: '3〜6週間', note: '既存サイトのWordPress化・改修もご相談ください。'
+      },
+      {
+        image: 'images/services/shopify.jpg', name: 'Shopify', desc: '売れる導線と安定運用のECサイトを構築します', price: 180000,
         includes: ['ストア設計・テーマのカスタマイズ', '商品・コレクション・決済の設定', '必要なアプリの選定と導入', '運用方法のご説明'],
-        period: '1〜2か月', note: '既存ECからの移行にも対応します。' },
-      { image: 'images/services/hubspot.jpg', name: 'HubSpot導入', desc: '営業導線とサイトを連携して、売上を最大化します', price: 150000,
+        period: '1〜2か月', note: '既存ECからの移行にも対応します。'
+      },
+      {
+        image: 'images/services/hubspot.jpg', name: 'HubSpot導入', desc: '営業導線とサイトを連携して、売上を最大化します', price: 150000,
         includes: ['HubSpot CMSでのサイト構築', 'フォームとCRMの連携設定', 'メール・ワークフローの初期設計', '担当者向けの運用サポート'],
-        period: '1〜2か月', note: 'すでにHubSpotをお使いの場合の改善もご相談ください。' },
+        period: '1〜2か月', note: 'すでにHubSpotをお使いの場合の改善もご相談ください。'
+      },
     ],
   },
   {
@@ -270,24 +300,36 @@ export const SERVICE_GROUPS = [
     label: 'システム・アプリ開発',
     lead: '業務の課題に合わせて、使われ続ける仕組みを設計します。',
     items: [
-      { image: 'images/services/webai.jpg', name: 'Webシステム・AI機能', desc: '業務課題に合わせて、WebシステムとAI機能を設計開発します', price: 180000,
+      {
+        image: 'images/services/webai.jpg', name: 'Webシステム・AI機能', desc: '業務課題に合わせて、WebシステムとAI機能を設計開発します', price: 180000,
         includes: ['業務フローのヒアリングと要件定義', '画面・データ設計', 'Webアプリ開発・AI機能の組み込み', 'テスト・導入・運用サポート'],
-        period: '1〜3か月', note: '小さく作って段階的に広げる進め方もできます。' },
-      { image: 'images/services/unity.jpg', name: 'Unity・メタバース', desc: '没入感のあるメタバースや3D空間を開発します（IT企業向け）', price: 250000,
+        period: '1〜3か月', note: '小さく作って段階的に広げる進め方もできます。'
+      },
+      {
+        image: 'images/services/unity.jpg', name: 'Unity・メタバース', desc: '没入感のあるメタバースや3D空間を開発します（IT企業向け）', price: 250000,
         includes: ['企画・仕様の整理', '3D空間・アバターの実装', 'マルチプレイ・音声通話などの通信機能', 'Android / iOS / PC 向けのビルドと公開'],
-        period: '2〜4か月', note: '既存アプリへの機能追加にも対応します。' },
-      { image: 'images/services/flutter.jpg', name: 'Flutter', desc: '企画から公開まで、スマホアプリを一貫開発します', price: null,
+        period: '2〜4か月', note: '既存アプリへの機能追加にも対応します。'
+      },
+      {
+        image: 'images/services/flutter.jpg', name: 'Flutter', desc: '企画から公開まで、スマホアプリを一貫開発します', price: null,
         includes: ['アプリの企画・画面設計', 'Flutterでの開発（iOS / Android）', 'API・データベースとの連携', 'ストア申請・公開のサポート'],
-        period: '2〜4か月', note: '機能と画面数に応じてお見積りします。' },
-      { image: 'images/services/liff.jpg', name: 'LINE LIFFアプリ', desc: 'LINE公式アカウントと連携するLIFFアプリで集客を強化します', price: 80000,
+        period: '2〜4か月', note: '機能と画面数に応じてお見積りします。'
+      },
+      {
+        image: 'images/services/liff.jpg', name: 'LINE LIFFアプリ', desc: 'LINE公式アカウントと連携するLIFFアプリで集客を強化します', price: 80000,
         includes: ['LINE公式アカウントとの連携設計', '予約・会員証・アンケートなどのLIFF画面', 'Messaging APIによる通知', '管理画面・データ連携'],
-        period: '3〜6週間', note: 'リッチメニューの設計もあわせて対応します。' },
-      { image: 'images/services/kintone.jpg', name: 'kintone', desc: 'アプリの新規開発・カスタマイズで、散らばった業務を整理します', price: 80000,
+        period: '3〜6週間', note: 'リッチメニューの設計もあわせて対応します。'
+      },
+      {
+        image: 'images/services/kintone.jpg', name: 'kintone', desc: 'アプリの新規開発・カスタマイズで、散らばった業務を整理します', price: 80000,
         includes: ['現在の業務・Excel管理のヒアリング', 'アプリ設計・新規作成', 'JavaScriptカスタマイズ・プラグイン導入', '外部サービスとの連携・運用ルールづくり'],
-        period: '2〜6週間', note: '既存アプリの整理・改修だけのご依頼も可能です。' },
-      { image: 'images/services/salesforce.jpg', name: 'Salesforce', desc: '新規構築から運用設計まで、一気通貫で対応します', price: 180000,
+        period: '2〜6週間', note: '既存アプリの整理・改修だけのご依頼も可能です。'
+      },
+      {
+        image: 'images/services/salesforce.jpg', name: 'Salesforce', desc: '新規構築から運用設計まで、一気通貫で対応します', price: 180000,
         includes: ['要件整理・オブジェクト設計', '画面・レポート・ダッシュボードの構築', 'フロー・Apexによる自動化', '外部APIとの連携・運用設計'],
-        period: '1〜3か月', note: 'Account Engagementの設定・整理にも対応します。' },
+        period: '1〜3か月', note: 'Account Engagementの設定・整理にも対応します。'
+      },
     ],
   },
   {
@@ -295,15 +337,21 @@ export const SERVICE_GROUPS = [
     label: 'AI・業務自動化',
     lead: '毎日の手作業と問い合わせ対応を、仕組みに置き換えます。',
     items: [
-      { image: 'images/services/chatbot.jpg', name: 'AIチャットボット', desc: '問い合わせ対応を減らす、業務特化のAIチャットボットを開発します', price: 80000,
+      {
+        image: 'images/services/chatbot.jpg', name: 'AIチャットボット', desc: '問い合わせ対応を減らす、業務特化のAIチャットボットを開発します', price: 80000,
         includes: ['よくある質問・社内資料の整理', '業務に合わせた回答設計', 'Webサイト・LINE・社内ツールへの設置', '回答精度の検証と改善'],
-        period: '3〜6週間', note: '社内向けのナレッジ検索にも活用できます。' },
-      { image: 'images/services/gas.jpg', name: 'GAS・API連携', desc: 'GASとAPI連携で、毎日の手作業を仕組みに変えます', price: 30000,
+        period: '3〜6週間', note: '社内向けのナレッジ検索にも活用できます。'
+      },
+      {
+        image: 'images/services/gas.jpg', name: 'GAS・API連携', desc: 'GASとAPI連携で、毎日の手作業を仕組みに変えます', price: 30000,
         includes: ['自動化したい作業のヒアリング', 'Googleスプレッドシート・フォームの自動化', '外部サービスとのAPI連携', '動作確認と使い方のご説明'],
-        period: '1〜3週間', note: '小さな自動化からお気軽にご相談ください。' },
-      { image: 'images/services/automation.jpg', name: 'n8n・Make・Zapier', desc: '転記と確認作業を自動化します', price: null,
+        period: '1〜3週間', note: '小さな自動化からお気軽にご相談ください。'
+      },
+      {
+        image: 'images/services/automation.jpg', name: 'n8n・Make・Zapier', desc: '転記と確認作業を自動化します', price: null,
         includes: ['自動化フローの設計', '各サービスとの接続設定', 'エラー時の通知・運用設計', '運用マニュアルの作成'],
-        period: '1〜4週間', note: 'ツールの選定からご提案します。' },
+        period: '1〜4週間', note: 'ツールの選定からご提案します。'
+      },
     ],
   },
 ];
@@ -320,28 +368,40 @@ export const TESTIMONIALS = {
 
 // 対応技術：トップページの「対応技術」に表示。icon は images/tech/ のファイル名（公式ロゴに差し替え可）
 export const STACK = [
-  { label: 'Frontend', lead: '画面・UI', items: [
-    { name: 'HTML5', icon: 'html5' }, { name: 'CSS3', icon: 'css3' }, { name: 'JavaScript', icon: 'javascript' },
-    { name: 'React', icon: 'react' }, { name: 'Next.js', icon: 'nextjs' }, { name: 'Vue.js', icon: 'vuejs' }, { name: 'Nuxt', icon: 'nuxt' },
-  ] },
-  { label: 'Backend', lead: 'サーバー・API', items: [
-    { name: 'Node.js', icon: 'nodejs' }, { name: 'Express', icon: 'express' }, { name: 'NestJS', icon: 'nestjs' }, { name: 'Python', icon: 'python' }, { name: 'Django', icon: 'django' },
-    { name: 'PHP', icon: 'php' }, { name: 'Laravel', icon: 'laravel' }, { name: 'Ruby on Rails', icon: 'rails' },
-  ] },
-  { label: 'CMS / EC', lead: 'サイト構築・ネットショップ', items: [
-    { name: 'WordPress', icon: 'wordpress' }, { name: 'Elementor', icon: 'elementor' }, { name: 'SWELL', icon: 'swell' }, { name: 'Wix', icon: 'wix' },
-    { name: 'HubSpot CMS', icon: 'hubspot' }, { name: 'Shopify', icon: 'shopify' }, { name: 'makeshop', icon: 'makeshop' },
-  ] },
-  { label: 'Business System', lead: '業務システム・アプリ', items: [
-    { name: 'Salesforce', icon: 'salesforce' }, { name: 'Account Engagement', icon: 'salesforce' }, { name: 'kintone', icon: 'kintone' },
-    { name: 'Google Apps Script', icon: 'googleappsscript' }, { name: 'LINE LIFF', icon: 'line' }, { name: 'Flutter', icon: 'flutter' },
-  ] },
-  { label: '3D / XR', lead: '3D空間・メタバース', items: [
-    { name: 'Unity', icon: 'unity' }, { name: 'C#', icon: 'csharp' }, { name: 'Photon Fusion 2', icon: 'photon' },
-    { name: 'Photon Voice 2', icon: 'photon' }, { name: 'Three.js', icon: 'threejs' },
-  ] },
-  { label: 'AI / Automation', lead: 'AI活用・業務自動化', items: [
-    { name: 'OpenAI API', icon: 'openai' }, { name: 'HeyGen API', icon: 'heygen' }, { name: 'Creatomate', icon: 'creatomate' },
-    { name: 'Make', icon: 'make' }, { name: 'n8n', icon: 'n8n' }, { name: 'Zapier', icon: 'zapier' },
-  ] },
+  {
+    label: 'Frontend', lead: '画面・UI', items: [
+      { name: 'HTML5', icon: 'html5' }, { name: 'CSS3', icon: 'css3' }, { name: 'JavaScript', icon: 'javascript' },
+      { name: 'React', icon: 'react' }, { name: 'Next.js', icon: 'nextjs' }, { name: 'Vue.js', icon: 'vuejs' }, { name: 'Nuxt', icon: 'nuxt' },
+    ]
+  },
+  {
+    label: 'Backend', lead: 'サーバー・API', items: [
+      { name: 'Node.js', icon: 'nodejs' }, { name: 'Express', icon: 'express' }, { name: 'NestJS', icon: 'nestjs' }, { name: 'Python', icon: 'python' }, { name: 'Django', icon: 'django' },
+      { name: 'PHP', icon: 'php' }, { name: 'Laravel', icon: 'laravel' }, { name: 'Ruby on Rails', icon: 'rails' },
+    ]
+  },
+  {
+    label: 'CMS / EC', lead: 'サイト構築・ネットショップ', items: [
+      { name: 'WordPress', icon: 'wordpress' }, { name: 'Elementor', icon: 'elementor' }, { name: 'SWELL', icon: 'swell' }, { name: 'Wix', icon: 'wix' },
+      { name: 'HubSpot CMS', icon: 'hubspot' }, { name: 'Shopify', icon: 'shopify' }, { name: 'makeshop', icon: 'makeshop' },
+    ]
+  },
+  {
+    label: 'Business System', lead: '業務システム・アプリ', items: [
+      { name: 'Salesforce', icon: 'salesforce' }, { name: 'Account Engagement', icon: 'salesforce' }, { name: 'kintone', icon: 'kintone' },
+      { name: 'Google Apps Script', icon: 'googleappsscript' }, { name: 'LINE LIFF', icon: 'line' }, { name: 'Flutter', icon: 'flutter' },
+    ]
+  },
+  {
+    label: '3D / XR', lead: '3D空間・メタバース', items: [
+      { name: 'Unity', icon: 'unity' }, { name: 'C#', icon: 'csharp' }, { name: 'Photon Fusion 2', icon: 'photon' },
+      { name: 'Photon Voice 2', icon: 'photon' }, { name: 'Three.js', icon: 'threejs' },
+    ]
+  },
+  {
+    label: 'AI / Automation', lead: 'AI活用・業務自動化', items: [
+      { name: 'OpenAI API', icon: 'openai' }, { name: 'HeyGen API', icon: 'heygen' }, { name: 'Creatomate', icon: 'creatomate' },
+      { name: 'Make', icon: 'make' }, { name: 'n8n', icon: 'n8n' }, { name: 'Zapier', icon: 'zapier' },
+    ]
+  },
 ];
